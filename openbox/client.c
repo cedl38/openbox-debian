@@ -1928,6 +1928,10 @@ void client_setup_decor_and_functions(ObClient *self, gboolean reconfig)
 
            but do kill the handle on fully maxed windows */
         self->decorations &= ~(OB_FRAME_DECOR_HANDLE | OB_FRAME_DECOR_GRIPS);
+
+        /* Optionally remove titlebar on maximized windows. */
+        if (config_theme_titleless_maximize)
+            self->decorations &= ~OB_FRAME_DECOR_TITLEBAR;
     }
 
     /* if we don't have a titlebar, then we cannot shade! */

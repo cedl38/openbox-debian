@@ -146,6 +146,8 @@ extern gchar *config_theme;
 
 /*! Show the one-pixel border after toggleDecor */
 extern gboolean config_theme_keepborder;
+/*! Hide the title on maximized windows */
+extern gboolean config_theme_titleless_maximize;
 /*! Titlebar button layout */
 extern gchar *config_title_layout;
 /*! Animate windows iconifying and restoring */
