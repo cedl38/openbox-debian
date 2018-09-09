@@ -47,6 +47,7 @@ StrutPartial config_margins;
 
 gchar   *config_theme;
 gboolean config_theme_keepborder;
+gboolean config_theme_titleless_maximize;
 guint    config_theme_window_list_icon_size;
 
 gchar   *config_title_layout;
@@ -710,6 +711,8 @@ static void parse_theme(xmlNodePtr node, gpointer d)
     }
     if ((n = obt_xml_find_node(node, "keepBorder")))
         config_theme_keepborder = obt_xml_node_bool(n);
+    if ((n = obt_xml_find_node(node, "titlelessMaximize")))
+        config_theme_titleless_maximize = obt_xml_node_bool(n);
     if ((n = obt_xml_find_node(node, "animateIconify")))
         config_animate_iconify = obt_xml_node_bool(n);
     if ((n = obt_xml_find_node(node, "windowListIconSize"))) {
@@ -1097,6 +1100,7 @@ void config_startup(ObtXmlInst *i)
     config_animate_iconify = TRUE;
     config_title_layout = g_strdup("NLIMC");
     config_theme_keepborder = TRUE;
+    config_theme_titleless_maximize = FALSE;
     config_theme_window_list_icon_size = 36;
 
     config_font_activewindow = NULL;
